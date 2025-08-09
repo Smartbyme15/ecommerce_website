@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinkStyle - Fashion Ecommerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">
+                <i class="fas fa-heart me-2"></i>Pastel Pop
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn btn-outline-primary me-2" id="wishlistBtn">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge bg-primary ms-1" id="wishlistCount">0</span>
+                    </button>
+                    <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge bg-white text-primary ms-1" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4 text-white">
+                            Discover Your Perfect Style
+                        </h1>
+                        <p class="lead mb-4 text-white-50">
+                            Explore our curated collection of premium fashion pieces designed to make you look and feel extraordinary.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#products" class="btn btn-light btn-lg px-4">
+                                Shop Now <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                            <button class="btn btn-outline-light btn-lg px-4">
+                                View Collection
+                            </button>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-4 text-center">
+                                <h3 class="fw-bold text-white">10K+</h3>
+                                <p class="text-white-50">Happy Customers</p>
+                            </div>
+                            <div class="col-4 text-center">
+                                <h3 class="fw-bold text-white">500+</h3>
+                                <p class="text-white-50">Premium Products</p>
+                            </div>
+                            <div class="col-4 text-center">
+                                <h3 class="fw-bold text-white">4.9</h3>
+                                <p class="text-white-50">Average Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="https://t3.ftcdn.net/jpg/01/20/36/84/360_F_120368458_jM1rSc1O5k58W6KM4aaexJnVpTaD768g.jpg" 
+                             alt="Fashion Model" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-5 fw-bold mb-3">Featured Products</h2>
+                    <p class="lead text-muted">Discover our latest collection of premium fashion items</p>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex justify-content-center flex-wrap gap-2">
+                        <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="dresses">Dresses</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="tops">Tops</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="bottoms">Bottoms</button>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="accessories">Accessories</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5" style="background-color: transparent;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">About Pastel Pop</h2>
+                    <p class="lead mb-4">
+                        We're passionate about bringing you the latest fashion trends with a focus on quality, 
+                        style, and affordability. Our curated collection features pieces that make you feel 
+                        confident and beautiful.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="feature-icon bg-primary text-white rounded-circle me-3">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Free Shipping</h5>
+                                    <p class="text-muted mb-0">On orders over $50</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="feature-icon bg-primary text-white rounded-circle me-3">
+                                    <i class="fas fa-undo"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Easy Returns</h5>
+                                    <p class="text-muted mb-0">30-day return policy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://pk.sapphireonline.pk/dw/image/v2/BKSB_PRD/on/demandware.static/-/Sites-sapphire-master-catalog/default/dwc6846b32/images/July25/25thJuly25/WTOP25V50021_999_3.JPG?sw=1000&sh=1200" 
+                         alt="About Us" class="img-fluid rounded-4 shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Get In Touch</h2>
+                    <p class="lead text-muted">We'd love to hear from you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-heart me-2 text-primary"></i>Pastel Pop
+                    </h5>
+                    <p class="text-muted">Your destination for premium fashion and style. Discover the latest trends and express your unique personality.</p>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.facebook.com/profile.php?id=61565215091940" class="text-primary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/the.laiba_project/" class="text-primary"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/" class="text-primary"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-muted text-decoration-none" >Home</a></li>
+                        <li><a href="#products" class="text-muted text-decoration-none">Products</a></li>
+                        <li><a href="#about" class="text-muted text-decoration-none">About</a></li>
+                        <li><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Customer Service</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Shipping Info</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Returns</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Size Guide</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <p class="text-muted">Subscribe to get updates on new arrivals and exclusive offers.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 Pastel Pop. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">Made with <i class="fas fa-heart text-primary"></i> for fashion lovers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalTitle">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="productModalBody">
+                    <!-- Product details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Search Products</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search for products...">
+                    <div id="searchResults" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Shopping Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="cartItems">
+                <div class="text-center py-5">
+                    <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                    <p class="text-muted">Your cart is empty</p>
+                </div>
+            </div>
+            <div id="cartTotal" class="d-none">
+                <hr>
+                <div class="d-flex justify-content-between mb-3">
+                    <strong>Total: $<span id="totalAmount">0.00</span></strong>
+                </div>
+                <button class="btn btn-primary w-100">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
